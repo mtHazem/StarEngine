@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/background_color">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/top_scores"
+        android:textSize="32sp"
+        android:textColor="@color/text_color"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="32dp" />
+
+    <!--
+      FIX: The ID has been changed from 'recyclerViewScores' to 'scoresRecyclerView'
+      to match the view binding property used in HighScoresActivity.kt.
+    -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/scoresRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tvNoScores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/no_scores"
+        android:textSize="18sp"
+        android:textColor="@color/text_color"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+</LinearLayout>
