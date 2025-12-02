@@ -62,7 +62,7 @@ public final class ScoreDao_Impl implements ScoreDao {
   }
 
   @Override
-  public Object insertScore(final Score score, final Continuation<? super Unit> $completion) {
+  public Object insertScore(final Score score, final Continuation<? super Unit> arg1) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -76,11 +76,11 @@ public final class ScoreDao_Impl implements ScoreDao {
           __db.endTransaction();
         }
       }
-    }, $completion);
+    }, arg1);
   }
 
   @Override
-  public Object deleteAllScores(final Continuation<? super Unit> $completion) {
+  public Object deleteAllScores(final Continuation<? super Unit> arg0) {
     return CoroutinesRoom.execute(__db, true, new Callable<Unit>() {
       @Override
       @NonNull
@@ -99,7 +99,7 @@ public final class ScoreDao_Impl implements ScoreDao {
           __preparedStmtOfDeleteAllScores.release(_stmt);
         }
       }
-    }, $completion);
+    }, arg0);
   }
 
   @Override
@@ -141,7 +141,7 @@ public final class ScoreDao_Impl implements ScoreDao {
   }
 
   @Override
-  public Object getTop5ScoresList(final Continuation<? super List<Score>> $completion) {
+  public Object getTop5ScoresList(final Continuation<? super List<Score>> arg0) {
     final String _sql = "SELECT * FROM scores ORDER BY points DESC LIMIT 5";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
@@ -172,11 +172,11 @@ public final class ScoreDao_Impl implements ScoreDao {
           _statement.release();
         }
       }
-    }, $completion);
+    }, arg0);
   }
 
   @Override
-  public Object getAllScores(final Continuation<? super List<Score>> $completion) {
+  public Object getAllScores(final Continuation<? super List<Score>> arg0) {
     final String _sql = "SELECT * FROM scores";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
     final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
@@ -207,7 +207,7 @@ public final class ScoreDao_Impl implements ScoreDao {
           _statement.release();
         }
       }
-    }, $completion);
+    }, arg0);
   }
 
   @NonNull

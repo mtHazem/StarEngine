@@ -1,28 +1,48 @@
 package com.example.starengine.ui
 
+import android.os.Build
 import android.os.Bundle
+import android.util.DisplayMetrics
+import android.view.WindowInsets
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
-import com.example.starengine.database.AppDatabase
-import com.example.starengine.database.entities.Score
+import com.example.starengine.databinding.ActivityGameBinding
 import com.example.starengine.game.GameView
-import kotlinx.coroutines.launch
 
 class GameActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityGameBinding
     private lateinit var gameView: GameView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        gameView = GameView(this)
-        setContentView(gameView)
+
+        binding = ActivityGameBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        // The GameView defined in activity_game.xml
+        gameView = binding.gameView
+
+        // Provide screen dimensions to GameView before it starts drawing
+        val (screenWidth, screenHeight) = getScreenDimensions()
+        gameView.setScreenSize(screenWidth, screenHeight)
     }
 
-    override fun onPause() {
-        super.onPause()
-        gameView.pause()
-        // Save the score when the activity is paused (e.g., back button)
-        saveScoreIfGameOver()
+    /**
+     * Correct screen size detection for all Android versions.
+     */
+    private fun getScreenDimensions(): Pair<Int, Int> {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            val metrics = windowManager.currentWindowMetrics
+            val insets = metrics.windowInsets.getInsets(WindowInsets.Type.systemBars())
+            val width = metrics.bounds.width() - insets.left - insets.right
+            val height = metrics.bounds.height() - insets.top - insets.bottom
+            Pair(width, height)
+        } else {
+            val metrics = DisplayMetrics()
+            @Suppress("DEPRECATION")
+            windowManager.defaultDisplay.getMetrics(metrics)
+            Pair(metrics.widthPixels, metrics.heightPixels)
+        }
     }
 
     override fun onResume() {
@@ -30,22 +50,8 @@ class GameActivity : AppCompatActivity() {
         gameView.resume()
     }
 
-    private fun saveScoreIfGameOver() {
-        // Check if the game engine exists and if the game is actually over
-        if (this::gameView.isInitialized && gameView.gameEngine.isGameOver) {
-            val finalScore = gameView.gameEngine.score
-
-            // Don't save scores of 0
-            if (finalScore > 0) {
-                // Launch a coroutine to perform the database operation
-                lifecycleScope.launch {
-                    val scoreEntity = Score(points = finalScore, date = System.currentTimeMillis())
-                    val database = AppDatabase.getDatabase(this@GameActivity)
-
-                    // The most likely correct method name is `insertScore`
-                    database.scoreDao().insertScore(scoreEntity)
-                }
-            }
-        }
+    override fun onPause() {
+        super.onPause()
+        gameView.pause()
     }
 }

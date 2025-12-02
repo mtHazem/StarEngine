@@ -20,7 +20,7 @@
 15-->[androidx.core:core:1.12.0] C:\Users\bnmaa\.gradle\caches\transforms-3\217cd4443c329c3de6d6b6409afab4f6\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
 16
 17    <application
-17-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:5:5-47:19
+17-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:5:5-48:19
 18        android:allowBackup="true"
 18-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:6:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -44,8 +44,8 @@
 29-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:13:9-48
 30        <activity
 30-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:16:9-25:20
-31            android:name="com.example.starengine.ui.MainActivity"
-31-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:17:13-44
+31            android:name="com.example.starengine.MainActivity"
+31-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:17:13-41
 32            android:exported="true"
 32-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:18:13-36
 33            android:screenOrientation="portrait" >
@@ -77,18 +77,18 @@
 46-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:35:13-50
 47            android:exported="false"
 47-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:36:13-37
-48            android:parentActivityName="com.example.starengine.ui.MainActivity"
-48-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:38:13-58
+48            android:parentActivityName="com.example.starengine.MainActivity"
+48-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:38:13-55
 49            android:screenOrientation="portrait" />
 49-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:37:13-49
 50        <activity
 50-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:41:9-46:56
-51            android:name="com.example.starengine.ui.UpgradesActivity"
-51-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:42:13-48
+51            android:name="com.example.starengine.activities.GameOverActivity"
+51-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:42:13-56
 52            android:exported="false"
 52-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:43:13-37
-53            android:parentActivityName="com.example.starengine.ui.MainActivity"
-53-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:45:13-58
+53            android:parentActivityName="com.example.starengine.MainActivity"
+53-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:45:13-55
 54            android:screenOrientation="portrait" />
 54-->C:\Users\bnmaa\StarEngine\app\src\main\AndroidManifest.xml:44:13-49
 55

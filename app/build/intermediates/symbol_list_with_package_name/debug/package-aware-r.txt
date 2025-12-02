@@ -1348,10 +1348,8 @@ color abc_tint_spinner
 color abc_tint_switch_track
 color accent_material_dark
 color accent_material_light
-color alien_color
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
-color background_color
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
@@ -1363,7 +1361,6 @@ color bright_foreground_inverse_material_dark
 color bright_foreground_inverse_material_light
 color bright_foreground_material_dark
 color bright_foreground_material_light
-color bullet_color
 color button_material_dark
 color button_material_light
 color call_notification_answer_color
@@ -1418,9 +1415,11 @@ color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
+color high_score_body_purple
+color high_score_header_purple
+color high_score_text_color
 color highlighted_text_material_dark
 color highlighted_text_material_light
-color jet_color
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -2072,7 +2071,6 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color teal_200
 color teal_700
-color text_color
 color tooltip_background_dark
 color tooltip_background_light
 color white
@@ -2955,6 +2953,7 @@ drawable alien2
 drawable alien3
 drawable avd_hide_password
 drawable avd_show_password
+drawable bossship
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3165,9 +3164,6 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
-id btnUpgradeBulletPower
-id btnUpgradeFireRate
-id btnUpgradeShipWidth
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3249,6 +3245,7 @@ id end
 id endToStart
 id enterAlways
 id enterAlwaysCollapsed
+id exitButton
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3270,6 +3267,7 @@ id forever
 id fragment_container_view_tag
 id frost
 id fullscreen_header
+id gameOverTextView
 id gameView
 id ghost_view
 id ghost_view_holder
@@ -3285,6 +3283,7 @@ id hideable
 id highScoresButton
 id home
 id homeAsUp
+id homeButton
 id honorRequest
 id horizontal_only
 id icon
@@ -3423,7 +3422,6 @@ id pathRelative
 id peekHeight
 id percent
 id pin
-id pointsBalanceTextView
 id position
 id postLayout
 id pressed
@@ -3444,6 +3442,7 @@ id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
 id scale
+id scoreTextView
 id scoresRecyclerView
 id screen
 id scroll
@@ -3492,6 +3491,7 @@ id src_in
 id src_over
 id standard
 id starfield_container
+id starfield_container_game_over
 id start
 id startGameButton
 id startHorizontal
@@ -3551,24 +3551,15 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
-id tvBulletPowerCost
-id tvBulletPowerLevel
-id tvBulletPowerTitle
+id tryAgainButton
 id tvDate
-id tvFireRateCost
-id tvFireRateLevel
-id tvFireRateTitle
 id tvNoScores
 id tvRank
 id tvScore
-id tvShipWidthCost
-id tvShipWidthLevel
-id tvShipWidthTitle
 id unchecked
 id uniform
 id unlabeled
 id up
-id upgradesButton
 id useLogo
 id vertical_only
 id view_offset_helper
@@ -3703,9 +3694,9 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_game
+layout activity_game_over
 layout activity_high_scores
 layout activity_main
-layout activity_upgrades
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

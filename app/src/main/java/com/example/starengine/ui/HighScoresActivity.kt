@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.starengine.database.AppDatabase
+import com.example.starengine.database.entities.Score
 import com.example.starengine.databinding.ActivityHighScoresBinding
-import com.example.starengine.ui.ScoreAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -40,7 +40,7 @@ class HighScoresActivity : AppCompatActivity() {
             // Get database instance and DAO on IO thread
             val scores = withContext(Dispatchers.IO) {
                 val db = AppDatabase.getDatabase(this@HighScoresActivity)
-                db.scoreDao().getAllScores()
+                db.scoreDao().getAllScores().sortedByDescending { it.points }.take(10)
             }
 
             // Update the UI on the main thread (already on main thread from lifecycleScope)

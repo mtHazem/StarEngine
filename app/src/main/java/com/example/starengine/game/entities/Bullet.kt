@@ -6,42 +6,36 @@ import android.graphics.Paint
 import android.graphics.RectF
 import com.example.starengine.utils.Constants
 
-// This constructor only needs the starting x and y coordinates.
-class Bullet(x: Float, y: Float) {
+class Bullet(private var x: Float, private var y: Float) {
 
-    private val bounds: RectF = RectF(
-        x,
-        y,
-        x + Constants.BULLET_WIDTH,
-        y + Constants.BULLET_HEIGHT
-    )
+    private val radius = 10f
 
-    private val paint = Paint().apply {
-        color = Color.YELLOW
+    private val innerPaint = Paint().apply {
+        color = Color.WHITE
+    }
+
+    private val outerPaint = Paint().apply {
+        color = Color.CYAN
     }
 
     var isActive = true
         private set
 
     fun update() {
-        // Move the bullet up the screen
-        bounds.top -= Constants.BULLET_SPEED
-        bounds.bottom = bounds.top + Constants.BULLET_HEIGHT
-
-        // Deactivate if it goes off the top of the screen
-        if (bounds.bottom < 0) {
+        y -= Constants.BULLET_SPEED
+        if (y < 0) {
             isActive = false
         }
     }
 
     fun draw(canvas: Canvas) {
-        if (!isActive) return
-        canvas.drawRect(bounds, paint)
+        if (isActive) {
+            canvas.drawCircle(x, y, radius, outerPaint)
+            canvas.drawCircle(x, y, radius / 2, innerPaint)
+        }
     }
 
-    fun getBounds(): RectF {
-        return bounds
-    }
+    fun getBounds(): RectF = RectF(x - radius, y - radius, x + radius, y + radius)
 
     fun deactivate() {
         isActive = false

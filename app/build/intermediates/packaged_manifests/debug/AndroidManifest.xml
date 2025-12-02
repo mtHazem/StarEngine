@@ -28,7 +28,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.StarEngine" >
         <activity
-            android:name="com.example.starengine.ui.MainActivity"
+            android:name="com.example.starengine.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait" >
             <intent-filter>
@@ -45,12 +45,12 @@
         <activity
             android:name="com.example.starengine.ui.HighScoresActivity"
             android:exported="false"
-            android:parentActivityName="com.example.starengine.ui.MainActivity"
+            android:parentActivityName="com.example.starengine.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.starengine.ui.UpgradesActivity"
+            android:name="com.example.starengine.activities.GameOverActivity"
             android:exported="false"
-            android:parentActivityName="com.example.starengine.ui.MainActivity"
+            android:parentActivityName="com.example.starengine.MainActivity"
             android:screenOrientation="portrait" />
 
         <provider

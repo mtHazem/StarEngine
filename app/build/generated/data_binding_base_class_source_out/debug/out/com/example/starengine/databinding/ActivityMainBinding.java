@@ -22,13 +22,13 @@ public final class ActivityMainBinding implements ViewBinding {
   private final RelativeLayout rootView;
 
   @NonNull
+  public final Button exitButton;
+
+  @NonNull
   public final TextView footerTextView;
 
   @NonNull
   public final Button highScoresButton;
-
-  @NonNull
-  public final TextView pointsBalanceTextView;
 
   @NonNull
   public final FrameLayout starfieldContainer;
@@ -39,21 +39,17 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final TextView titleTextView;
 
-  @NonNull
-  public final Button upgradesButton;
-
-  private ActivityMainBinding(@NonNull RelativeLayout rootView, @NonNull TextView footerTextView,
-      @NonNull Button highScoresButton, @NonNull TextView pointsBalanceTextView,
+  private ActivityMainBinding(@NonNull RelativeLayout rootView, @NonNull Button exitButton,
+      @NonNull TextView footerTextView, @NonNull Button highScoresButton,
       @NonNull FrameLayout starfieldContainer, @NonNull Button startGameButton,
-      @NonNull TextView titleTextView, @NonNull Button upgradesButton) {
+      @NonNull TextView titleTextView) {
     this.rootView = rootView;
+    this.exitButton = exitButton;
     this.footerTextView = footerTextView;
     this.highScoresButton = highScoresButton;
-    this.pointsBalanceTextView = pointsBalanceTextView;
     this.starfieldContainer = starfieldContainer;
     this.startGameButton = startGameButton;
     this.titleTextView = titleTextView;
-    this.upgradesButton = upgradesButton;
   }
 
   @Override
@@ -83,6 +79,12 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.exitButton;
+      Button exitButton = ViewBindings.findChildViewById(rootView, id);
+      if (exitButton == null) {
+        break missingId;
+      }
+
       id = R.id.footerTextView;
       TextView footerTextView = ViewBindings.findChildViewById(rootView, id);
       if (footerTextView == null) {
@@ -92,12 +94,6 @@ public final class ActivityMainBinding implements ViewBinding {
       id = R.id.highScoresButton;
       Button highScoresButton = ViewBindings.findChildViewById(rootView, id);
       if (highScoresButton == null) {
-        break missingId;
-      }
-
-      id = R.id.pointsBalanceTextView;
-      TextView pointsBalanceTextView = ViewBindings.findChildViewById(rootView, id);
-      if (pointsBalanceTextView == null) {
         break missingId;
       }
 
@@ -119,15 +115,8 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.upgradesButton;
-      Button upgradesButton = ViewBindings.findChildViewById(rootView, id);
-      if (upgradesButton == null) {
-        break missingId;
-      }
-
-      return new ActivityMainBinding((RelativeLayout) rootView, footerTextView, highScoresButton,
-          pointsBalanceTextView, starfieldContainer, startGameButton, titleTextView,
-          upgradesButton);
+      return new ActivityMainBinding((RelativeLayout) rootView, exitButton, footerTextView,
+          highScoresButton, starfieldContainer, startGameButton, titleTextView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

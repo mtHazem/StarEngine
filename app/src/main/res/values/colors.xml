@@ -7,12 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    
-    <!-- Game colors -->
-    <color name="jet_color">#FF2196F3</color>
-    <color name="alien_color">#FFFF5722</color>
-    <color name="bullet_color">#FFFFEB3B</color>
-    <color name="background_color">#FF000000</color>
-    <color name="text_color">#FFFFFFFF</color>
+    <color name="high_score_header_purple">#4A148C</color>
+    <color name="high_score_body_purple">#7E57C2</color>
+    <color name="high_score_text_color">#FFFFFF</color>
 </resources>
-
